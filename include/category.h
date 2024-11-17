@@ -4,6 +4,9 @@
 
 class Category {
 public:
+	Category();
+	Category(std::string key);
+	Category(std::string key, std::string value);
 	std::string get_key() const;
 	void set_key(std::string key);
 	std::string get_value() const;

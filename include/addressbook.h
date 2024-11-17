@@ -10,6 +10,7 @@ public:
 	void list_categories() const;
 private:
 	std::vector<std::shared_ptr<Category>> categories;
+	bool key_already_exists(std::string key);
 };
 
 #endif
