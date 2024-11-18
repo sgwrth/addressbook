@@ -5,11 +5,15 @@
 
 void Addressbook::add_category(std::shared_ptr<Category> category)
 {
-	if (key_already_exists(category->get_key()) == true) {
-		std::cout << "ERROR: Key already exists!\n";
+	if (category->get_key().compare("[undefined]") == 0) {
+		categories.push_back(category);
 		return;
 	}
-	categories.push_back(category);
+	if (key_already_exists(category->get_key()) == false) {
+		categories.push_back(category);
+		return;
+	}
+	std::cout << "ERROR: Key already exists!\n";
 }
 
 void Addressbook::list_categories() const
@@ -19,7 +23,7 @@ void Addressbook::list_categories() const
 	}
 }
 
-bool Addressbook::key_already_exists(std::string key)
+bool Addressbook::key_already_exists(std::string key) const
 {
 	for (const auto& element : categories) {
 		if (element->get_key().compare(key) == 0) {

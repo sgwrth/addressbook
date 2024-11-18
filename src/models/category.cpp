@@ -1,7 +1,10 @@
 #include "../../include/category.h"
 #include <string>
 
-Category::Category() {}
+Category::Category()
+	: key{"[undefined]"}
+	, value{"[empty]"}
+{}
 
 Category::Category(std::string key_in) : key{key_in}
 {
